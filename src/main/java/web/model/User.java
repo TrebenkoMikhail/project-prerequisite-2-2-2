@@ -8,11 +8,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "firstName")
+    @Column (name = "firstname")
     private String firstName;
-    @Column(name = "lastName")
+    @Column (name = "lastname")
     private String lastName;
-    @Column(name = "email")
+    @Column (name = "email")
     private String email;
 
     public User() {    }
