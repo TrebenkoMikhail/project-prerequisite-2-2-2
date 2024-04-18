@@ -8,7 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -32,9 +34,11 @@ import java.util.Properties;
 @ComponentScan("web")
 @PropertySource("classpath:application.properties")
 @EnableTransactionManagement
+
 public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private Environment env;
+
 
     private final ApplicationContext applicationContext;
 
@@ -98,6 +102,4 @@ public class WebConfig implements WebMvcConfigurer {
         resolver.setTemplateEngine(templateEngine());
         registry.viewResolver(resolver);
     }
-
-
 }

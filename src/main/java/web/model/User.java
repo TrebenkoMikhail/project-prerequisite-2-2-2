@@ -2,15 +2,16 @@ package web.model;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column (name = "firstname")
+    @Column (name = "firstName")
     private String firstName;
-    @Column (name = "lastname")
+    @Column (name = "lastName")
     private String lastName;
     @Column (name = "email")
     private String email;
@@ -53,5 +54,15 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
